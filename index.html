@@ -1,1 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grant Albin's Personal Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    html { scroll-behavior: smooth; }
+    .skills-list { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 1rem; }
+    .skills-list li { background: var(--accent); color: white; padding: 0.5rem 1rem; border-radius: 0.25rem; font-weight: 600; }
+  </style>
+</head>
+<body>
 
+  <header>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <button type="button" id="theme-toggle" class="btn">
+        Toggle Dark Mode
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="home" class="fade-in">
+      <h1>Hi, I'm Grant</h1>
+      <p>Former electrician turned full time student looking for a better career.</p>
+      <img src="family.jpg" 
+           alt="Photo of my family and me.">
+    </section>
+
+    <!-- About – your real content -->
+    <section id="about" class="stack fade-in">
+      <h2>About Me</h2>
+      <p>I am 23 years old from Charleston, Illinois. I'm a former electrician who recently became passionate about the Information Technology and web technology space.</p>
+      <p>This is my second semester at Lakeland, and I am looking forward to future projects as I am currently having a lot of fun learning and creating projects like this. In my spare time, I like to play video games and watch basketball. My goal is to get into a cybersecurity-related field, as I think I would truly enjoy doing the work.</p>
+
+      <h3>Skills</h3>
+      <ul class="skills-list">
+        <li>HTML5</li>
+        <li>CSS3</li>
+        <li>JavaScript</li>
+      </ul>
+    </section>
+
+    <section id="projects" class="fade-in">
+      <h2>My Projects</h2>
+      <div class="projects-grid">
+        
+        <article class="project-card">
+          <h3>Simple Webpage for Class</h3>
+          <p>Simple website that I made for this class.</p>
+          <img src="webProj.jpg" 
+               alt="Screenshot of the web project homepage">
+          <a href="#" class="btn">View Project</a>
+        </article>
+
+        <article class="project-card">
+          <h3>Media Embed</h3>
+          <p>Testing the embedded YouTube video</p>
+          <iframe src="https://www.youtube.com/embed/Aq5WXmQQooo" 
+                  title="Embedded video example" 
+                  allowfullscreen 
+                  loading="lazy"></iframe>
+        </article>
+
+        <article class="project-card">
+          <h3>This Single Page Portfolio Site</h3>
+          <p>Single page responsive portfolio featuring dark mode, CSS Grid, animations, and accessibility..</p>
+          <p class="muted">Technologies: HTML, CSS (Grid + Flexbox), basic JavaScript</p>
+          <a href="#" class="btn">Live Site</a>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="contact" class="stack fade-in">
+      <h2>Contact Me</h2>
+      <p>Please contact me if you have any questions!</p>
+      <form action="#" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="topic">Topic:</label>
+        <select id="topic" name="topic">
+          <option value="general">General Inquiry</option>
+          <option value="project">Project Collaboration</option>
+          <option value="feedback">Feedback</option>
+        </select>
+
+        <fieldset>
+          <legend>Preferred Contact Method</legend>
+          <label><input type="radio" name="contact_method" value="email" required> Email</label>
+          <label><input type="radio" name="contact_method" value="phone"> Phone</label>
+        </fieldset>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required minlength="10"></textarea>
+
+        <button type="submit" class="btn">Submit</button>
+      </form>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Grant. All rights reserved.</p>
+  </footer>
+  
+  <script>
+    const toggleButton = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+
+    let currentTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', currentTheme);
+    toggleButton.textContent = currentTheme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+
+    toggleButton.addEventListener('click', () => {
+      currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', currentTheme);
+      localStorage.setItem('theme', currentTheme);
+      toggleButton.textContent = currentTheme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+    });
+  </script>
+
+</body>
+</html>
